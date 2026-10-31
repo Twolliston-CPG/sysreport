@@ -1,7 +1,9 @@
 # sysreport
 
 > One command that tells you whether a Linux host is healthy: a readable report for a human, JSON
-> for a script, and an exit code a monitor can act on.
+> for a script, and an exit code a monitor can act on
+
+# bash 4+, Linux, shellcheck (for the pre-commit hook)
 
 Week 1, Lab 4 of the [Mastery curriculum](../../../../README.md). The assignment is in
 [`labs/lab-04-bash-sysreport.md`](../../labs/lab-04-bash-sysreport.md).
