@@ -222,3 +222,25 @@ subshell and once in the parent, so one failure prints two lines.
 | `sysreport.sh` | the whole tool, one file |
 | `README.md` | this file |
 | `LICENSE` | MIT, covering the files in this folder |
+| `.gitignore` | keeps logs, temp files, backups and `.env` out of the repo |
+| `.pre-commit-config.yaml` | the commit-time checks described below |
+
+## Contributing
+
+Checks run automatically on every commit once the hooks are installed:
+
+```bash
+pip install pre-commit      # or: brew install pre-commit
+pre-commit install
+pre-commit run --all-files  # optional: check everything now
+```
+
+| Hook | What it catches |
+|---|---|
+| `trailing-whitespace`, `end-of-file-fixer` | whitespace noise (these fix the file; stage it again and recommit) |
+| `check-merge-conflict` | leftover conflict markers |
+| `detect-private-key`, `gitleaks` | committed keys and secrets |
+| `shellcheck` | shell warnings and errors in `sysreport.sh` (`-S warning`) |
+
+The `shellcheck` hook runs the `shellcheck` binary on your PATH rather than a Docker image, so install
+it first (`brew install shellcheck`, or your distro's package).
